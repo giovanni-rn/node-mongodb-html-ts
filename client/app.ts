@@ -17,7 +17,7 @@ const fetchUsers = (): void => {
 // Display the fetched users from GET API
 const displayUsers = (users: Array<{name: string, age: number, email: string}>): void => {
     users.forEach((user) => {
-        const listItem = document.createElement("li");
+        const listItem: HTMLElement = document.createElement("li");
         listItem.textContent = `${user.name}, ${user.age} ans (${user.email})`;
         userListElement.appendChild(listItem);
     });
@@ -25,8 +25,8 @@ const displayUsers = (users: Array<{name: string, age: number, email: string}>):
 fetchUsers();
 
 // Send form data (user infos) to Node/MongoDB backend server
-const sendFormData = () => {
-    const newUser = {name: nameInput.value, age: parseInt(ageInput.value), email: emailInput.value}
+const sendFormData = (): void => {
+    const newUser: {name: string, age: number, email: string} = {name: nameInput.value, age: parseInt(ageInput.value), email: emailInput.value}
     console.log(newUser)
     fetch("http://localhost:3000/api/users", {
         method: "POST",
@@ -41,7 +41,7 @@ const sendFormData = () => {
 }
 
 // Trigger POST request to send form data
-buttonInput.onclick = () => {
+buttonInput.onclick = (): void => {
         if (nameInput.value !== "" && ageInput.value !== "" && ageInput.value !== "") sendFormData();
         else alert("Make sure to fill all the input fields.")
     };
