@@ -1,0 +1,14 @@
+services:
+  - name: message-service
+    buildCommand: npm start
+    root: /
+    env:
+      - key: NODE_ENV
+        value: production
+    buildEnv:
+      - key: NODE_ENV
+        value: production
+    envVars:
+      - key: NODE_ENV
+        value: production
+    nodeVersion: 12
