@@ -1,5 +1,5 @@
 const http = require("node:http"); // load the library to create a server
-const { rootApi, getUsers, postUser } = require("./apis.js"); // api controllers
+const { rootApi, getMessages, postMessage } = require("./apis.js"); // api controllers
 
 const hostname = "127.0.0.1"; // localhost address
 const port = 3000; // server port
@@ -14,8 +14,10 @@ const server = http.createServer((req, res) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   // Handle endpoints (routes)
   if (req.url === "/") rootApi(req, res); // display simple message in client
-  if (req.url === "/api/users" && req.method === "GET") getUsers(req, res); // get users infos
-  if (req.url === "/api/users" && req.method === "POST") postUser(req, res); // add a user via html form and fetch request
+  if (req.url === "/api/messages" && req.method === "GET")
+    getMessages(req, res); // get messages infos
+  if (req.url === "/api/messages" && req.method === "POST")
+    postMessage(req, res); // add a message via html form and fetch request
 });
 
 server.listen(port, hostname, () => {
