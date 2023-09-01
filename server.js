@@ -6,7 +6,12 @@ const port = 3000; // server port
 
 const server = http.createServer((req, res) => {
   // Set CORS headers to allow requests from any origin
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", [
+    "http://127.0.0.1:5500",
+    "http://127.0.0.1:5500/",
+    "https://oriano-dev.github.io/one-piece-game/",
+    "https://oriano-dev.github.io/one-piece-game",
+  ]);
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, DELETE"
