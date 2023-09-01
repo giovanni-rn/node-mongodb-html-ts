@@ -5,11 +5,10 @@ const port = process.env.PORT || 3000; // Use the provided port or default to 30
 
 const server = http.createServer((req, res) => {
   // Set CORS headers to allow requests from specified origins
-  res.setHeader("Access-Control-Allow-Origin", [
-    "https://oriano-dev.github.io/one-piece-game",
-    "*",
-    "*/*",
-  ]);
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://oriano-dev.github.io/one-piece-game"
+  );
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
