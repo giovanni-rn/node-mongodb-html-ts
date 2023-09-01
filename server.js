@@ -2,7 +2,7 @@ const http = require("node:http"); // load the library to create a server
 const { rootApi, getMessages, postMessage } = require("./apis.js"); // api controllers
 
 const hostname = "127.0.0.1"; // localhost address
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // Use the provided port or default to 3000
 
 const server = http.createServer((req, res) => {
   // Set CORS headers to allow requests from specified origins
@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
   ]);
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, DELETE"
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
