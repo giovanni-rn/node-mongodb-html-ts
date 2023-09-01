@@ -1,14 +1,12 @@
 services:
   - name: message-service
-    buildCommand: npm start
+    buildCommand: npm install
+    startCommand: npm start
     root: /
-    env:
-      - key: NODE_ENV
-        value: production
-    buildEnv:
-      - key: NODE_ENV
-        value: production
     envVars:
       - key: NODE_ENV
         value: production
-    nodeVersion: 14.20.1
+    plan: free
+    env: # Add your environment variables here if necessary
+    buildEnv: # Add your build environment variables here if necessary
+    nodeVersion: 18.17.0

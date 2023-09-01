@@ -1,13 +1,11 @@
 const http = require("node:http"); // load the library to create a server
 const { rootApi, getMessages, postMessage } = require("./apis.js"); // api controllers
 
-const hostname = "127.0.0.1"; // localhost address
 const port = process.env.PORT || 3000; // Use the provided port or default to 3000
 
 const server = http.createServer((req, res) => {
   // Set CORS headers to allow requests from specified origins
   res.setHeader("Access-Control-Allow-Origin", [
-    "http://127.0.0.1:5500",
     "https://oriano-dev.github.io/one-piece-game",
     "*",
     "*/*",
@@ -26,7 +24,7 @@ const server = http.createServer((req, res) => {
     postMessage(req, res); // add a message via html form and fetch request
 });
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
   // runs the server on localhost:3000
-  console.log(`Server running at http://${hostname}:${port}/`); // message to display in console
+  console.log(`Server running on port ${port}`); // message to display in console
 });
