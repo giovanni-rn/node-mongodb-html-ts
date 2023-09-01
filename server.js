@@ -5,11 +5,9 @@ const hostname = "127.0.0.1"; // localhost address
 const port = 3000; // server port
 
 const server = http.createServer((req, res) => {
-  // Set CORS headers to allow requests from any origin
+  // Set CORS headers to allow requests from specified origins
   res.setHeader("Access-Control-Allow-Origin", [
     "http://127.0.0.1:5500",
-    "http://127.0.0.1:5500/",
-    "https://oriano-dev.github.io/one-piece-game/",
     "https://oriano-dev.github.io/one-piece-game",
   ]);
   res.setHeader(
@@ -17,6 +15,7 @@ const server = http.createServer((req, res) => {
     "GET, POST, OPTIONS, PUT, DELETE"
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
   // Handle endpoints (routes)
   if (req.url === "/") rootApi(req, res); // display simple message in client
   if (req.url === "/api/messages" && req.method === "GET")
