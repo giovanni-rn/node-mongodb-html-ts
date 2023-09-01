@@ -1,4 +1,4 @@
-const http = require("node:http"); // load the library to create a server
+const http = require("http"); // load the library to create a server
 const { rootApi, getMessages, postMessage } = require("./apis.js"); // api controllers
 
 const port = process.env.PORT || 3000; // Use the provided port or default to 3000
