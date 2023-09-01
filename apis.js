@@ -37,7 +37,9 @@ module.exports.postMessage = (req, res) => {
     req.on("end", () => {
       const parsedFormData = JSON.parse(formData); // parse form data sent from js fetch request
       const newMessage = {
+        name: parsedFormData.name,
         content: parsedFormData.content,
+        date: parsedFormData.date,
       }; // get each field from client (html) form to insert them into messages collection
 
       messagesCollection
