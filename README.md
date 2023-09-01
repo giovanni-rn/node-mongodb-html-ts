@@ -1,3 +1,3 @@
-# Full Stack NodeJS + MongoDB / HTML + Typescript
+# message server
 
-- No Express, no Mongoose, que dalle
+NodeJS + MongoDB : small GET and POST API to store messages at "/api/messages"
